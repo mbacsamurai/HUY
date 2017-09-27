@@ -42,7 +42,6 @@ namespace miniProjectH
                 btn.Name = objParent.Name + ".Number." + i.ToString(format);
                 btn.Text = Convert.ToString(i.ToString(format));
                 flp1.Controls.Add(btn);
-                //Console.WriteLine(i);
             }
             objParent.Controls.Add(flp1);
         }

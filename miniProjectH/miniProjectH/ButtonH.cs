@@ -9,6 +9,12 @@ namespace miniProjectH
 
     class ButtonH : Button
     {
+
+
+        public event EventHandler AfterClicked;
+        public EventArgs e = null;
+        public delegate void EventHandler(ButtonH b, EventArgs e);
+
         private Boolean _StateClick;
         public Boolean StateClick
         {
@@ -24,6 +30,9 @@ namespace miniProjectH
                     this.Clicked();
                 }
                 this._StateClick = value;
+
+                if (AfterClicked != null)
+                    AfterClicked(this, e);
 
                 ///Console.WriteLine(this.StateClick);
                 ///Console.WriteLine(this.Name);
@@ -51,7 +60,7 @@ namespace miniProjectH
             this.StateClick = !this.StateClick;
             
         }
-        protected override void onc
+        //protected override void onc
         
         
     }

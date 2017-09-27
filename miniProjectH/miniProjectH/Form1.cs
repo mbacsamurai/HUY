@@ -56,9 +56,9 @@ namespace miniProjectH
 
         private void AddHandlerButtonH()
         {
-            foreach (Control ctl in this.GetAllCtls(typeof(ButtonH)))
+            foreach (ButtonH ctl in this.GetAllCtls(typeof(ButtonH)))
             {
-                ctl.Click += new EventHandler(btn_click);
+               ctl.AfterClicked += new ButtonH.EventHandler(btn_AfterClick);
             }
         }
         private ButtonH GetButtonH(String name)
@@ -74,32 +74,40 @@ namespace miniProjectH
             }
             return new ButtonH();
         }
-        private void btn_click(object sender,EventArgs e)
+        private void btn_AfterClick(object sender, EventArgs e)
         {
             ButtonH btn = (ButtonH)sender;
 
             if (btn.Name.Contains("Number"))
             {
-                
+
             }
 
             if (btn.Name.Contains("btnUpper3") || btn.Name.Contains("btnLower3"))
             {
-                ///this.TPnumber3.Enabled = btn.StateClick;
+                this.TPnumber3.Enabled = GetButtonH("btnUpper3").StateClick || GetButtonH("btnLower3").StateClick;
 
-                Console.WriteLine(GetButtonH("btnUpper3").StateClick);
-                Console.WriteLine(GetButtonH("btnLower3").StateClick);
+
+                Console.WriteLine("btnUpper3 : " + GetButtonH("btnUpper3").StateClick);
+                Console.WriteLine("btnLower3 : " + GetButtonH("btnLower3").StateClick);
 
             }
             if (btn.Name.Contains("btnUpper2") || btn.Name.Contains("btnLower2"))
             {
 
+                this.PanelNumber2.Enabled = GetButtonH("btnUpper2").StateClick || GetButtonH("btnLower2").StateClick;
+
+                Console.WriteLine("btnUpper2 : " + GetButtonH("btnUpper2").StateClick);
+                Console.WriteLine("btnLower2 : " + GetButtonH("btnLower2").StateClick);
             }
             if (btn.Name.Contains("btnUpper1") || btn.Name.Contains("btnLower1"))
             {
 
+                this.PanelNumber1.Enabled = GetButtonH("btnUpper1").StateClick || GetButtonH("btnLower1").StateClick;
+
+                Console.WriteLine("btnUpper1 : " + GetButtonH("btnUpper1").StateClick);
+                Console.WriteLine("btnLower1 : " + GetButtonH("btnLower1").StateClick);
             }
-            
         }
 
 
