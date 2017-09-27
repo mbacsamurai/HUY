@@ -9,8 +9,6 @@ namespace miniProjectH
 
     class ButtonH : Button
     {
-
-
         public event EventHandler AfterClicked;
         public EventArgs e = null;
         public delegate void EventHandler(ButtonH b, EventArgs e);
@@ -41,6 +39,7 @@ namespace miniProjectH
         public ButtonH()
         {
             this.FlatStyle = FlatStyle.Flat;
+            ///this.FlatStyle = FlatStyle.System;
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12);
             
         }
